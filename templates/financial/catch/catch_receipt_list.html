@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block item %}
+
+<div class="btn-group-vertical m-3 w-100" role="group" aria-label="Vertical button group">
+    <a href="{% url 'add_catch_receipt' %}" class="btn btn-primary mb-2">سند صرف</a>
+    <a href="#" class="btn btn-primary mb-2">سند قبض</a>
+    <a href="{% url 'catch_receipt_list' %}" class="btn btn-primary mb-2">تقرير</a>
+</div>
+
+{% endblock %}
+{% block content %}
+
+
+<div class="table-responsive m-3 text-center">
+    <div class="card-header m-3 ">
+
+        <form method="GET" class="w-100">
+            <div class="btn btn-light">
+                الشركة: {{ myFilter.form.company }}
+                المندوب: {{ myFilter.form.delegate }}
+                المحاسب: {{ myFilter.form.accountant }}
+                من : {{ myFilter.form.start_date }}
+                الى: {{ myFilter.form.end_date }}
+            </div>
+            <input class="btn btn-primary " type="submit" value="فلترة"></a>
+        </form>
+
+    </div>
+
+
+
+    
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <form action="{% url 'check_list' %}" method="POST">
+            {% csrf_token %}
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>رقم السند </th>
+                    <th>السائق</th>
+                    <th> المسار</th>
+                    <th>المبلغ</th>
+                    <th>المصدر</th>
+                    <th>التاريخ</th>
+                    <th>المندوب</th>
+                    <th>الصندوق</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in catch_receipt %}
+                <tr>
+                    <td><input type="checkbox" name="{{ item.catchReceipt_id }}" id="check"></td>
+                    <td><a href="{% url 'catch_receipt_details' item.catchReceipt_id%}">{{ item.catchReceipt_id }}</a>
+                    </td>
+                    <td><a href="{% url 'driver_details' item.driver.pk%}">{{ item.driver }}</a></td>
+                    <td> من: {{ item.source }} -- الى: {{ item.destination }} </td>
+                    <td>{{ item.total_amount }}</a></td>
+                    <td>{{ item.company}} </td>
+                    <td>{{ item.date|date:"d-m-Y" }} </td>
+                    <td>{{ item.delegate}} </td>
+                    <td>{{ item.accountant }}</td>
+
+
+                    {% endfor %}
+
+            </tbody>
+    </table>
+    <input class="btn btn-primary " type="submit" value="طباعة"></a>
+</div>
+</form>
+</table>
+
+
+{% endblock %}

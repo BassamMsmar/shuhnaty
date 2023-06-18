@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block item %}
+<div class="btn-group-vertical m-3 w-100" role="group" aria-label="Vertical button group">
+    <a href="{% url 'driver_list' %}" class="btn btn-primary mb-2">قائمة السائقين</a>
+    <a href="{% url 'add_driver' %}" class="btn btn-primary mb-2"> إضافة سائق</a>
+</div>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="table-responsive m-3 text-center">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>رقم التسلسلي</th>
+                <th>الاسم </th>
+                <th>الجنسية</th>
+                <th>رقم الهاتف </th>
+                <th>رقم الهوية</th>
+                <th>رقم اللوحة</th>
+                <th>نوع السيارة</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for driver in drivers %}
+            <tr>
+                <td><a href="{% url 'driver_details' driver.pk %}">{{ driver.driver_id }}</a> </td>
+                <td>{{ driver.driver_name }}</a> </td>
+                <td>{{ driver.driver_nationality }} </td>
+                <td>{{ driver.driver_phone_number }} </td>
+                <td>{{ driver.Identification_Number }} </td>
+                <td>{{ driver.truck_plate_number }} </td>
+                <td>{{ driver.Vehicle_Type }} </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

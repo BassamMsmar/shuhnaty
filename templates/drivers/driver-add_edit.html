@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<div class="text-center m-5">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-row">
+
+                <div class="col-md-4 mb-3">
+                    <label for="exampleFormControlSelect1">أسم السائق : </label>
+                    {{ driver_form.driver_name }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01"> جنسية السائق :   </label>
+                    {{ driver_form.driver_nationality }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">  نوع السيارة :  </label>
+                    {{ driver_form.Vehicle_Type }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">  رقم الهاتف :  </label>
+                    {{ driver_form.driver_phone_number }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">  رقم الهوية :  </label>
+                    {{ driver_form.Identification_Number }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">  رقم اللوحة :  </label>
+                    {{ driver_form.truck_plate_number }}
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01"> الرقم التسلسلي   : </label>
+                    {{ driver_form.Owner_car_id_number }}
+                </div>
+                <div class="col-md-4 ">
+                    <label for="validationCustom01">  رقم هوية المالك  :  </label>
+                    {{ driver_form.Owner_car_id_number }}
+                </div>
+                <div class="col-md-4 m-3 w-25">
+                    <input class="btn btn-primary w-50" type="submit" value="حفظ"></a>
+
+                </div>
+              
+
+            
+            
+        </div>
+    </form>
+<div>
+
+{% endblock %}

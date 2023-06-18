@@ -1,0 +1,153 @@
+
+.sidabar{
+    padding:0px;
+    width:10%;
+}
+
+.sidabar ul{
+    list-style-type:none ;
+}
+.sidabar ul li{
+    text-align:center;
+    list-style-type:none ;
+    margin: 5px;
+    background-color:rgb(175, 175, 175);
+}
+
+h5,
+h6 {
+  text-align: right;
+  margin-right: 10px;
+}
+#dotted {
+  text-decoration: underline black dotted 0.8px;
+}
+#ted1 {
+  text-decoration: underline black dotted 0.8px;
+  font-size: 20px;
+  line-height: 30px;
+  vertical-align: -5px;
+}
+
+.box-3 {
+  background-color: #fff;
+  height: 45px;
+  width: 250px;
+  text-align: center;
+  margin-top: 5;
+  margin-right: 12px;
+  border: 1px solid #e17d27;
+  border-radius: 20px;
+}
+.box-4 {
+  background-color: #fff;
+  height: 30px;
+  width: 140px;
+  text-align: center;
+  margin-top: 23px;
+  margin-right: 12px;
+  border: 1px solid #e17d27;
+  border-radius: 20px;
+  text-align:center;
+}
+.box-4 p {
+  text-align: center;
+  margin-left: 10px;
+}
+#ted1 {
+  text-decoration: underline black dotted 0.8px;  
+  font-size: 20px;
+  line-height: 30px;
+  vertical-align: -5px;
+}
+
+.box-5 {
+  background-color: #fff;
+  height: 30px;
+  width: 140px;
+  text-align: center;
+  margin-top: 23px;
+  margin-right: 120px;
+  border: 1px solid #e17d27;
+  border-radius: 20px;
+  text-align:center;
+  
+}
+.box-5 h6 {
+  
+  text-align: center;
+  margin-top: 5px;
+  
+}
+h5, h6{
+  text-align:right;
+  margin-right: 10px;
+  
+}
+#dotted {
+  text-decoration: underline black dotted 0.8px;  
+}
+
+.all {
+  margin-top: 2%;
+  border: 2px solid #e17d27;
+  border-radius: 20px;
+  background-color: #fdfeff;
+}
+.imgo {
+  width: 90px;
+  height: 70px;
+
+
+}
+h3 {
+  text-align: center;
+  color: #e17d27;
+}
+.row1 h5 {
+  text-align: center;
+  color: #555;
+}
+.box-2 {
+  height: 40x;
+  width: 160px;
+  border: 1px solid #e17d27;
+  margin-top: -16px;
+
+}
+.box-1 {
+  background-color: #fff;
+  height: 45px;
+  width: 200px;
+  text-align: center;
+  margin-top: 12px;
+  border: 1px solid #e17d27;
+}
+.ma,
+.te {
+  color: #666;
+}
+hr {
+  border-bottom: 1px solid #e17d27;
+  margin-top: -20px;
+}
+.row-3 {
+  margin-top: 5%;
+}
+.colored {
+  background-color: #ddd;
+  border: 1px solid black;
+  border-radius: 20px;
+
+}
+.img-size {
+  width: 20px;
+  height: 20px;
+}
+.border-op {
+  border-left: 3px solid #e17d27;
+}
+.ma {
+  margin-top: 10px;
+}
+

@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form">
+                <!-- 1 -->
+
+
+                <div class="row p-3">
+                    <div class="col-sm-4 ">
+
+                    </div>
+                    <div class="col-sm-4 ">
+                        <label for="exampleFormControlSelect1">أسم السائق : </label>
+                        {{ catch_receipt_form.driver }}
+                        <a href="{%url 'add_driver'%}"><img src="{% static 'img/plus.png' %}" style="width: 20px;"></a>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+                <hr class=" m-3 border-primary border-1"/>
+
+
+
+                <!-- 2 -->
+                <div class="row p-3">
+                    <div class="col-sm-4 ">
+                        <label for="validationCustom01">مدينة التحميل : </label>
+                        {{ catch_receipt_form.source }}
+                    </div>
+                    <div class="col-sm-4 ">
+                        <label for="validationCustom01">مدينة التنزيل : </label>
+                        {{ catch_receipt_form.destination }}
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="validationCustom01"> مصدر التحميل : </label>
+                        {{ catch_receipt_form.company }}
+                    </div>
+                </div>
+                <hr class=" m-3 border-primary border-1"/>
+
+                <!-- 3 -->
+                <div class="row p-3">
+                    <div class="col-sm-4 ">
+                        <label for="validationCustom01"> أجرة التحميل : </label>
+                        {{ catch_receipt_form.amount }}
+                    </div>
+                    <div class="col-sm-4 ">
+                        <label for="validationCustom01"> يوميات : </label>
+                        {{ catch_receipt_form.overnight }}
+                    </div>
+                    <div class="col-sm-4 d-inline">
+                        <label class="d-inline"> اجرة رجعة : </label>
+                        <div class="d-inline">
+                            {{ catch_receipt_form.return_fare }}
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 4 -->
+                <div class="row p-3">
+                    <div class="col-sm-4">
+
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="validationCustom01"> خصومات : </label>
+                        {{ catch_receipt_form.deduction }}
+                    </div>
+
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+                <hr class=" m-3 border-primary border-1"/>
+
+
+
+                <!-- 4 -->
+                <div class="row p-3">
+                    <div class="col-md-4 mt-4">
+                        <label for="validationCustom01"> رقم كشف التحميل : </label>
+                        {{ catch_receipt_form.policy_number }}
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <label for="validationCustom01"> رقم فاتورة المصنع : </label>
+                        {{ catch_receipt_form.notice_number }}
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <label for="validationCustom01"> رقم الشحن </label>
+                        {{ catch_receipt_form.Shipment_id }}
+                    </div>
+                </div>
+                <hr class=" m-3 border-primary border-1"/></p>
+                
+
+
+                <!-- 5 -->
+                <div class="row ">
+                    <div class="col-md-4 my-5">
+                        <label for="exampleFormControlSelect1 w-100"> نوع الشاحنة : </label>
+                        {{ catch_receipt_form.Vehicle_Type }}
+                    </div>
+
+                    <div class="col-md-4 my-5">
+                        <label for="exampleFormControlSelect1 w-100"> مندوب التحميل : </label>
+                        {{ catch_receipt_form.delegate }}
+                    </div>
+                    <div class="col-md-4 my-5">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" value="نقداً" name="payment_method" id="btnradio1"
+                                autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="btnradio1">نقداً</label>
+
+                            <input type="radio" class="btn-check" value="تحويل" name="payment_method" id="btnradio2"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btnradio2">تحويل</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-3">
+                    <div class="col-md-4 m-5">
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <input class="btn btn-primary w-75 rounded-pill" type="submit" value="create"></a>
+                    </div>
+                    <div class="col-md-4 m-5">
+                       
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+        <div>
+        </div>
+
+
+
+
+
+
+        <!-- جدول للعرض -->
+
+        {% endblock %}
+
+
+        <div class="row p-3">
+            <div class="col-sm-4 ">
+
+            </div>
+            <div class="col-sm-4 ">
+
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+        </div>

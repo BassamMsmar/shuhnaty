@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="card  m-5 shadow-lg p-2 bg-body rounded" style="max-width: 460px;">
+    <div class="row g-0">
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Name : {{companies.company_name }}</h5>
+                <h5 class="card-title">Company city : {{companies.company_city }}</h5>
+                <h5 class="card-title">Charging area : {{companies.charging_area }}</h5>
+            </div>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <a class="btn btn-outline-secondary" href="{% url 'edit_company' companies.pk %}">Edit</a>
+            <a class="btn btn-outline-secondary" href="#">Download PDF</a>
+            <a class="btn btn-outline-danger" href="{% url 'company_delete' companies.pk %}">Delete</a>
+        </div>
+
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}

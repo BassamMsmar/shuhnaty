@@ -1,0 +1,47 @@
+-{% extends 'base.html' %}
+
+{% block item %}
+
+<div class="btn-group-vertical m-3 w-100" role="group" aria-label="Vertical button group">
+    <a href="{% url 'signup' %}" class="btn btn-primary mb-2">إضافة جديد</a>
+</div>
+
+{% endblock %}
+{% block content %}
+
+
+
+<div class="table-responsive m-3 text-center">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <form action="{% url 'check_list' %}" method="POST">
+            {% csrf_token %}
+
+            <thead>
+                <tr>
+                    <th>الاسم </th>
+                    <th>اسم المستخدم</th>
+                    <th>رقم الهاتف</th>
+                    <th>الفرع</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in users %}
+                <tr>
+
+                    <td>{{ item.first_name}}    {{ item.last_name }}</td>
+                    <td>{{ item.username}} </td>
+                    <td>{{ item.number_phone }}</a></td>
+                    <td>{{ item.branch }} </td>
+
+
+                    {% endfor %}
+
+            </tbody>
+    </table>
+</div>
+
+
+
+
+{% endblock %}

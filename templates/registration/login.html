@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<div class="card text-center position-absolute top-50 start-50 translate-middle" style="width: 30rem;">
+    <div class="card-body ">
+        <h1 class="section-headline m-3"> أهلاً  {{ user.first_name }}</h1>
+      
+      <p class="card-text m-5">شكرا لا أستخدامك برنامج شحناتي</p>
+    </div>
+  </div>
+
+
+
+{% else %}
+
+
+
+
+<div class="card" style="max-width: 540px; margin:15% 30% 25% 15%;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{% static 'img/logo.png' %}" class="img-fluid rounded-start mt-5 " alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body" >
+                <form class="row g-3 d-inline" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+
+                    <label class="form-label m-0">أسم المستخدم :</label>
+                    <div class="w-100 mb-3">
+                        {{ form.username }}
+                    </div>
+
+
+                    <label class="form-label m-0">الرقم السري:</label>
+                    <div class="w-100 mb-5">
+                        {{ form.password }}
+                    </div>
+
+                    <div class="w-100 mt-3">
+                        <button type="submit" class="btn btn-primary">دخول</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+
+
+
+{% endblock %}

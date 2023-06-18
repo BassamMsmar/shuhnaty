@@ -1,0 +1,32 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+
+
+    <div class="card  m-5 shadow-lg p-2 bg-body rounded" style="max-width: 460px;">
+        <div class="row g-0">
+           
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ drivers.driver_name }}</h5>
+                    <h5 class="card-title">{{drivers.Identification_Number }}</h5>
+                    <h5 class="card-title">{{ drivers.driver_nationality }}</h5>
+                    <h5 class="card-title">{{ drivers.driver_phone_number }}</h5>
+                    <h5 class="card-title">{{ drivers.truck_plate_number }}</h5>
+                    <h5 class="card-title">{{ drivers.Owner_car_id_number }}</h5>
+                    <h5 class="card-title">{{ drivers.Vehicle_Type }}</h5>
+                </div>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <a class="btn btn-outline-secondary" href="{% url 'edit_driver' drivers.pk %}">Edit</a>
+                <a class="btn btn-outline-secondary" href="#">Download PDF</a>
+                <a class="btn btn-outline-danger" href="{% url 'delete_driver' drivers.pk %}">Delete</a>
+
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+

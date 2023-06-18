@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block item %}
+
+<div class="btn-group-vertical m-3 w-100" role="group" aria-label="Vertical button group">
+        <a href="{% url 'company_list' %}" class="btn btn-primary mb-2">قائمة المصانع</a>
+        <a href="{% url 'add_company' %}" class="btn btn-primary mb-2"> إضافة مصنع</a>
+</div>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<!-- جدول للعرض -->
+
+
+
+<div class="table-responsive m-3 text-center">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Cmpany id </th>
+                <th>Name</th>
+                <th>Company city</th>
+                <th>Charging area</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for company in companies %}
+            <tr>
+                <td>{{ company.company_id }} </td>
+                <td>
+                    <a href="{% url 'company_details' company.pk%}">{{ company.company_name }}</a>
+                </td>
+                <td>{{ company.company_city }} </td>
+                <td>{{ company.charging_area}} </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

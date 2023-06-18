@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center m-5">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-row">
+
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom01">مدينة التحميل : </label>
+                {{ company_form.company_name }}
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom01">مدينة التنزيل : </label>
+                {{ company_form.company_city }}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom01"> مصدر التحميل : </label>
+                {{ company_form.charging_area }}
+            </div>
+
+            <div class="col-md-4 m-2">
+                <input class="btn btn-primary w-75" type="submit" value="create"></a>
+            </div>
+
+
+
+
+
+
+        </div>
+    </form>
+    <div>
+
+        {% endblock %}

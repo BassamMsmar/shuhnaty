@@ -1,0 +1,157 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container all">
+        <div class="row row1 p-3">
+            <div class="col-sm-5 ">
+                <h3>مؤسسة الجيد للنقليات</h3>
+                <h5>فرع {{ catch_receipt.branch }}</h5>
+            </div>
+            <div class="col-sm-2 p-3"><img class="imgo ml-5" src="{% static 'img/logo.png' %}"></div>
+            <div class="col-sm-5">
+                <h3> Aljeed Transportation Est</h3>
+                {% if catch_receipt.branch == 'جدة' %}
+                    <h5> Jeddah branch</h5>
+                {% elif catch_receipt.branch == 'الدمام' %}
+                    <h5> Dammam branch</h5>
+                {% elif catch_receipt.branch == 'الرياض' %}
+                    <h5>Riyadh branch</h5>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row row-2">
+            
+           
+            <div class="col-sm-3 mr-5">
+                <div class="box-4 mb-2">
+                    <h5>
+                        <p><span id="ted1">
+                            {{ catch_receipt.total_amount|intcomma  }}
+                        </span></p>
+                    </h5>
+                </div>
+            </div>
+            <div class="col-sm-3 mx-5">
+                <div class="box-3">
+                    <h2 >سند صرف</h2>
+                </div>
+            </div>
+            <div class="col-sm-3 mr-5" >
+                <div class="box-5 " >
+                    <h6 > No :  {{ catch_receipt.catchReceipt_id }} </h6>
+                </div>
+            </div>
+             
+        </div>
+        <hr>
+        <div class="row row-3">
+            <div class="col-sm-8">
+                <h5>
+                    <p class="ml-4">أدفعوا لأمر : <span id="dotted"> {{ catch_receipt.driver }} </span></p>
+                </h5>
+            </div>
+            <div class="col-sm-4 ">
+                <h5 style="margin-top:-100px; margin-right:100px">التاريخ :  <span id="dotted">{{ catch_receipt.date|date:"d-m-Y" }}</span></h5>
+            </div>
+        </div>
+        <div  class="row row-4">
+            <div class="col-sm-6 colored mr-3">
+                <h5 class="m-0 mt-1 " >
+                    <p>مبلغ وقدرة :  <span id="dotted">{{total_ward}} ريال فقط</span></p>
+                </h5>
+            </div>  
+        </div>
+        <div  class="row row-4">
+            <div class="col-sm-8">
+                <h5 >
+                    <p> وذلك عن : اجرة تحميل من ( <span id="dotted">{{ catch_receipt.source }} </span> ) الى  (  <span id="dotted">{{ catch_receipt.destination }}  </span> ) المصدر ( <span id="dotted"> {{ catch_receipt.company }}</span>  )        <p>
+                </h5>
+            </div>
+           
+            
+        </div>
+        <div class="row row-4">
+            <div class="col-sm-3">
+                <h5 > 
+                    <p> أجرة تحميل : <span id="dotted">{{ catch_receipt.amount|intcomma }}</span></p>
+                </h5>
+                <h5 > 
+                    <p> أجرة رجعة :   <span id="dotted">{{ catch_receipt.return_fare|intcomma }}</span></p>
+                </h5>
+           
+            </div>
+            <div class="col-sm-3">
+                <h5 >
+                    <p> خصومات : <span id="dotted">{{ catch_receipt.deduction|intcomma }}</span></p>
+                </h5>
+                <h5 >
+                    <p> مـــباتــــات : <span id="dotted">{{ catch_receipt.overnight|intcomma }}</span></p>
+                </h5>
+            </div> 
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-4">
+                <h5>رقم كشف التحميل : <span id="dotted">{{ catch_receipt.policy_number }} </span></h5>
+                <h5>رقم الفـــاتورة : <span id="dotted">{{ catch_receipt.notice_number }} </span></h5>
+                <h5>رقم الشحــــن : <span id="dotted">{{ catch_receipt.Shipment_id }} </span></h5>
+                <h5> نوع الشاحنة : <span id="dotted">{{ catch_receipt.Vehicle_Type }} </span></h5>
+            </div>
+        </div>
+        <h5 style=" padding:5px"> ــ استلمت المبلغ المذكور اعلاه</h5>
+        <div  class="row row-4">
+            <div class="col-sm-4">
+                <h5  style="text-align:center">المستلم</h5>
+                <h5 style="text-align:center"><span id="dotted">{{ catch_receipt.driver }} </span></h5>
+            </div>
+            <div class="col-sm-4">
+                <h5 style="text-align:center">المندوب</h5>
+                <h5 style="text-align:center"><span id="dotted">{{ catch_receipt.delegate }} </span></h5>
+            </div>
+            <div class="col-sm-4">
+                <h5 style="text-align:center">الصندوق</h5>
+                <h5 style="text-align:center"><span id="dotted">{{ catch_receipt.accountant }} </span></h5>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+        <div class="row ma" dir="rtl">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-5" style="text-align:right">
+                        <p class="border-op" >الادارة العامة 0505808847 <img class="img-size"
+                                src="{% static 'img/phone.png' %}"><img class="img-size" src="{% static 'img/whats.png' %}"><br>مكتب
+                            0555885409-0506354433 <img class="img-size" src="{% static 'img/phone.png' %}"><img class="img-size"
+                                src="{% static 'img/whats.png' %}"><br>جده 0551156677-0550056677 <img class="img-size"
+                                src="{% static 'img/phone.png' %}"><img class="img-size" src="{% static 'img/whats.png' %}"></p>
+                    </div>
+                    <div class="col-sm-6" style="text-align:right">
+                        <p>مكتب ابها- تبوك- المدينة المنورة- جيزان<br>0551156677-0550056677 <img class="img-size"
+                                src="{% static 'img/phone.png' %}"><img class="img-size" src="{% static 'img/whats.png' %}"><br>مكتب الدمام 0558880311
+                            <img class="img-size" src="{% static 'img/phone.png' %}"><img class="img-size" src="{% static 'img/whats.png' %}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="te"  style="text-align:center">مكتب الرياض- القصيم 0551157766 <img class="img-size"
+                src="{% static 'img/phone.png' %}"><img class="img-size" src="{% static 'img/whats.png' %}"></p>
+    </div> -->
+</body>
+</html>
+
+
+
+
+
